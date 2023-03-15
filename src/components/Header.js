@@ -2,6 +2,7 @@ import Image from 'next/image';
 import {
   MagnifyingGlassIcon,
   ShoppingCartIcon,
+  Bars3Icon,
 } from '@heroicons/react/24/outline';
 import AmazonLogo from '../../public/images/amazon_logo.png';
 
@@ -9,7 +10,7 @@ export default function Header() {
   return (
     <header>
       {/* Top Navigation Bar */}
-      <div className="flex items-center flex-1 px-4 py-2 bg-amazon_blue">
+      <div className="flex items-center flex-grow px-4 py-2 bg-amazon_blue">
         {/* Logo */}
         <div className="flex items-center flex-grow sm:flex-grow-0 mt-2 mr-6">
           <Image
@@ -52,9 +53,28 @@ export default function Header() {
             </span>
           </div>
         </div>
-
-        {/* Bottom Navigation Bar */}
-        <div></div>
+      </div>
+      {/* Bottom Navigation Bar */}
+      <div className="flex items-center space-x-4 px-6 py-2 bg-amazon_blue-light text-white text-sm font-semibold">
+        <p className="flex items-center gap-1 link">
+          <Bars3Icon className="h-6" />
+          All
+        </p>
+        <p className="link hidden lg:inline-flex">Sell</p>
+        <p className="link hidden 2xl:inline-flex">Amazon miniTV</p>
+        <p className="link hidden xl:inline-flex">Best Sellers</p>
+        <p className="link">Mobiles</p>
+        <p className="link hidden 2xl:inline-flex">Customer Service</p>
+        <p className="link">Today{"'"}s Deals</p>
+        <p className="link hidden lg:inline-flex">Electronics</p>
+        <p className="link">Prime</p>
+        <p className="link">Amazon Pay</p>
+        <p className="link hidden xl:inline-flex">New Releases</p>
+        <p className="link hidden lg:inline-flex">Home & Kitchen</p>
+        <p className="link hidden lg:inline-flex">Fashion</p>
+        <p className="link hidden lg:inline-flex">Beauty & Personal Care</p>
+        <p className="link hidden lg:inline-flex">Computers</p>
+        <p className="link hidden lg:inline-flex">Books</p>
       </div>
     </header>
   );
