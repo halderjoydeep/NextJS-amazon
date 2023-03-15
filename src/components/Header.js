@@ -1,3 +1,5 @@
+import { useSession, signIn, signOut } from 'next-auth/react';
+
 import Image from 'next/image';
 import {
   MagnifyingGlassIcon,
@@ -7,6 +9,8 @@ import {
 import AmazonLogo from '../../public/images/amazon_logo.png';
 
 export default function Header() {
+  const { data: session, status } = useSession();
+
   return (
     <header>
       {/* Top Navigation Bar */}
@@ -35,8 +39,10 @@ export default function Header() {
         {/* Right Side */}
         <div className="flex items-center justify-between space-x-8 text-white whitespace-nowrap">
           {/* Accounts & Lists */}
-          <div className="link">
-            <p className="text-gray-100 text-xs font-medium">Hello, Joydeep!</p>
+          <div className="link" onClick={!session ? signIn : signOut}>
+            <p className="text-gray-100 text-xs font-medium">
+              Hello, {session ? session?.user.name.split(' ')[0] : 'Sign In'}
+            </p>
             <p className="font-bold text-sm">Account & Lists</p>
           </div>
           {/* Returns & Orders */}
