@@ -1,6 +1,10 @@
+import { useRouter } from 'next/router';
+import Image from 'next/image';
 import { useSession, signIn, signOut } from 'next-auth/react';
 
-import Image from 'next/image';
+import { useSelector } from 'react-redux';
+import { totalQuantitySelector } from '@/store/cartSlice';
+
 import {
   MagnifyingGlassIcon,
   ShoppingCartIcon,
@@ -10,6 +14,8 @@ import AmazonLogo from '../../public/images/amazon_logo.png';
 
 export default function Header() {
   const { data: session, status } = useSession();
+  const router = useRouter();
+  const totalQuantity = useSelector(totalQuantitySelector);
 
   return (
     <header>
@@ -23,6 +29,7 @@ export default function Header() {
             height={30}
             alt="Amazon Logo"
             className="object-contain cursor-pointer"
+            onClick={() => router.push('/')}
           />
         </div>
 
@@ -51,11 +58,14 @@ export default function Header() {
             <p className="font-bold text-sm">& Orders</p>
           </div>
           {/* Basket */}
-          <div className="relative flex items-center link">
+          <div
+            className="relative flex items-center link"
+            onClick={() => router.push('/checkout')}
+          >
             <ShoppingCartIcon className="h-8" />
             <p className="hidden md:block font-bold text-sm mt-2">Cart</p>
             <span className="absolute -top-1 left-5 flex items-center justify-center w-4 h-4 p-1 text-xs text-black font-bold bg-amber-500 rounded-full">
-              0
+              {totalQuantity}
             </span>
           </div>
         </div>

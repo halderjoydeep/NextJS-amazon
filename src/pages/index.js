@@ -13,7 +13,7 @@ export default function Home({ products }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <main className="max-w-screen-2xl w-[90%] bg-gray-100 mx-auto">
+      <main className="max-w-screen-2xl w-[90%] mx-auto">
         {/* Banner */}
         <Banner />
 
