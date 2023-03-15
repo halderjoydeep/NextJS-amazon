@@ -7,3 +7,7 @@
     @apply cursor-pointer hover:underline;
   }
 }
+
+body {
+  @apply bg-gray-100;
+}

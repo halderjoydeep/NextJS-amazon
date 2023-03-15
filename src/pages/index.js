@@ -1,3 +1,4 @@
+import Banner from '@/components/Banner';
 import Header from '@/components/Header';
 import Head from 'next/head';
 
@@ -11,6 +12,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
+      <main className="max-w-screen-xl bg-gray-100 mx-auto">
+        {/* Banner */}
+        <Banner />
+
+        {/* Product */}
+      </main>
     </>
   );
 }
